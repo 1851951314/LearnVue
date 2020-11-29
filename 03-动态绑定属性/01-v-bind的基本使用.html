@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <img v-bind:src="imgUrl" alt="">
+        <a v-bind:href="aHref">百度一下</a>
+        <img :src="imgUrl" alt="">
+        <a :href="aHref">百度一下</a>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                imgUrl: 'https://www.baidu.com/img/dong_f17b19f600dbf0bfc9b8bed5836f50be.gif',
+                aHref: 'http://www.baidu.com'
+            }
+        });
+    </script>
+</body>
+
+</html>

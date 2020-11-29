@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <cpn></cpn>
+        <button @click="btnClick">demo</button>
+    </div>
+
+    <template id="cpn">
+        <div>我是子组件</div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            methods: {
+                btnClick() {
+                    console.log(this.$children);
+                    this.$children[0].showMessage();
+                    console.log(this.$children[0].name);
+                }
+            },
+            components: {
+                cpn: {
+                    template: '#cpn',
+                    data() {
+                        return {
+                            name: '我是子组件的name'
+                        }
+                    },
+                    methods: {
+                        showMessage() {
+                            console.log('showMessage');
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

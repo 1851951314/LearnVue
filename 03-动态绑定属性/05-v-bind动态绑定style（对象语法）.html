@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- '50px'必须加上单引号，否则会被当做一个变量去解析 -->
+        <h2 :style="{fontSize: '50px'}">{{message}}</h2>
+        <!-- finishSize和finalSize被当成变量来使用 -->
+        <h2 :style="{fontSize: finishSize, color: finnalColor}">{{message}}</h2>
+        <h2 :style="getStyles()">{{message}}</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好啊',
+                finalSize: 100,
+                finishSize: '200px',
+                finnalColor: 'red'
+            },
+            methods: {
+                getStyles: function () {
+                    return { fontSize: this.finalSize + 'px', color: this.finnalColor }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 1.只获取对象中的value值） -->
+        <ul>
+            <li v-for="value in info">{{value}}</li>
+        </ul>
+        <!-- 2.获取对象中的key和value值 -->
+        <ul>
+            <li v-for="(value, key) in info">{{key}}：{{value}}</li>
+        </ul>
+        <!-- 3.获取对象中的key、value和index值 -->
+        <ul>
+            <li v-for="(value, key, index) in info">{{key}}：{{value}}-----{{index}}</li>
+        </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                info: {
+                    name: '张三',
+                    age: 18,
+                    height: 180,
+                    sex: '男'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
